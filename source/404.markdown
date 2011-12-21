@@ -1,0 +1,11 @@
+---
+layout: page
+title: "404 - Page Not Found"
+comments: false
+sharing: true
+footer: true
+---
+
+Sorry.  The page you've requested cannot be found.  You may be able find
+it on our [Categories](/categories) or [Archives](/blog/archives) pages.
+
