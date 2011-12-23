@@ -1,6 +1,20 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
+body > nav a 
+{ 
+    font-family: "pragmatica-web";
+    font-weight: 400;
+    font-style: normal;
+}
+
+span.categories, div.category_list
+{ 
+    font-family: "pragmatica-web";
+    font-weight: 400;
+    font-style: normal;
+}
+
 .titleL { 
     font-family: "pragmatica-web";
     font-weight: 200;

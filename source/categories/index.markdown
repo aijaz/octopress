@@ -4,12 +4,16 @@ title: Categories
 footer: false
 ---
 
-* [Camping](/categories/camping/)
-* [Computers](/categories/computers/)
-* [DIY](/categories/diy/)
-* [Fitness](/categories/fitness/)
-* [Knots](/categories/knots/)
-* [Photography](/categories/photography/)
-* [Photos](/categories/photos/)
-* [Reviews](/categories/reviews/)
-* [Woodworking](/categories/woodworking/)
+<div class=category_list>
+    <ul>
+        <li><a href="/categories/camping/">Camping</a></li>
+        <li><a href="/categories/computers/">Computers</a></li>
+        <li><a href="/categories/diy/">DIY</a></li>
+        <li><a href="/categories/fitness/">Fitness</a></li>
+        <li><a href="/categories/knots/">Knots</a></li>
+        <li><a href="/categories/photography/">Photography</a></li>
+        <li><a href="/categories/photos/">Photos</a></li>
+        <li><a href="/categories/reviews/">Reviews</a></li>
+        <li><a href="/categories/woodworking/">Woodworkding</a></li>
+    </ul>
+</div>
