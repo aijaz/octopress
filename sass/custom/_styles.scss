@@ -1,6 +1,18 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
+.titleL { 
+    font-family: "pragmatica-web";
+    font-weight: 200;
+    font-style: normal;
+}
+
+.titleB { 
+    font-family: "pragmatica-web";
+    font-weight: 700;
+    font-style: normal;
+}
+
 div.ail { 
     max-width: 100%;
     float: left;
