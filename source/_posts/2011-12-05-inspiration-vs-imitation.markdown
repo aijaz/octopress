@@ -6,6 +6,7 @@ layout: post
 slug: inspiration-vs-imitation
 status: publish
 title: Inspiration vs. Imitation
+categories: Design
 ---
 
 Jessica Hische has just published [a very well written article](http://www.jessicahische.is/obsessedwiththeinternet/andbeingresponsivelyinspired/inspiration-vs-imitation-2) on "why it's ok to copy people to learn, but

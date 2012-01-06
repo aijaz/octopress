@@ -3,7 +3,7 @@ layout: post
 title: "Switching To Octopress"
 date: 2011-12-12 08:19
 comments: false
-categories: 
+categories: Computers
 ---
 
 Over this past weekend I switched my blog over from WordPress to
