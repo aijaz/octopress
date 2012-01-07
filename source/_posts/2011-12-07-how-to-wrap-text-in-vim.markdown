@@ -11,6 +11,7 @@ categories:
 tags:
 - Editors
 - Vim
+- Wrap
 ---
 
 [Another in my [series of posts on Vim](/2011/11/21/there-and-back-again-a-hackers-switch-from-emacs-back-to-vi/)]

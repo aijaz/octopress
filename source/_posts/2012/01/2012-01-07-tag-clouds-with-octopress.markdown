@@ -19,8 +19,9 @@ In this post I'll show you how I added tag clouds to my Octopress blog.
 
 <!-- more -->
 
-Before I go any further I want to stress something: **While this is an elegant
-solution, it's not the optimal solution, and not a permanent solution.**  There
+Before I go any further I want to stress something: **While this is a robust
+solution, it's not the optimal solution, and not a permanent solution.**  I 
+don't know whether it's particularly elegant, either.  It's not ugly, but it isn't beautiful.  There
 is [at least one](https://github.com/imathis/octopress/pull/282) project in the 
 works to add tags to Octopress.  When that's pulled into the main Octopress 
 repository, it will probably be the way tag clouds ought to be done.  Despite that
@@ -46,7 +47,7 @@ There are three parts to this problem:
 
 <h2>Displaying a list of tags</h2>
 
-This was pretty easy to get almost right.  I modified ```source/_layouts/post.html``` to include a new file called ```tags.html```:
+This was pretty easy to get right.  I modified ```source/_layouts/post.html``` to include a new file called ```tags.html```:
 
 {% codeblock source/_layouts/post.html lang:html https://github.com/aijaz/octopress/commit/d72ad36b52d278f189260f80fb355c01e60542b8#diff-6 View in GitHub%}
 {% raw %}
@@ -156,8 +157,8 @@ What's important to remember is that ```tagify.pl``` does 3 things:
 </div>
 {% endcodeblock %}
 
-The title is included for accessibility, and the classes ```tag_1``` through
-```tag_10``` are used to display the tags in the appropriate size.
+The title is included for accessibility, and the classes ```tag_1``` 
+through ```tag_10``` are used to display the tags in the appropriate size.
 
 * For each tag it creates a file that lists all the posts tagged with that tag in reverse chronological order.  For the tag ```Editors``` it would create ```source/tags/Editors/index.markdown```
 
@@ -214,10 +215,17 @@ Finally, I added a line to ```source/_includes/custom/navigation.html``` to link
 
 <h2>Summary</h2>
 
+It bears mentioning that you don't always need to run ```tagify.pl```.  You
+only need to run it if you've updated the tags on a post.  If you have changed
+a tag, you must run ```rake generate``` before and after running
+```tagify.pl```.  If you're just working on edits to a post before publishing
+it, you don't need to run ```tagify.pl``` every time you want to view your post
+on your local machihne . ```rake generate``` is enough. 
+
 I'm glad to say that I was able to get tags to work with Octopress exactly the
 way I wanted. It was pretty quick, too.  It took me longer to write this blog
 post than to actually do the work.  If you like this post, please let me know
-on Twitter, where I'm [@_aijaz_](https://twitter.com/#!/_aijaz_).  Thanks.
+on Twitter, where I'm [@\_aijaz\_](https://twitter.com/#!/_aijaz_).  Thanks.
 
 
 <h2>Appendix - tagify.pl</h2>

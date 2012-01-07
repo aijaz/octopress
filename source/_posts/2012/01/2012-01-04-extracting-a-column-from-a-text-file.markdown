@@ -8,6 +8,8 @@ categories:
 tags:
 - UNIX
 - Text
+- cut
+- nl
 ---
 
 There have been times when I've had to extract a particular column from a
