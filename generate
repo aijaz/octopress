@@ -1,6 +1,8 @@
 #!/bin/bash
 
 rake generate
+./tagify.pl --dir .
+rake generate
 
 find /Users/aijaz/octopress/public \
      -type f \

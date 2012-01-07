@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Tag&#58; Perl
+title: Tag&#58; Ruby
 footer: false
 ---
 
@@ -10,16 +10,6 @@ footer: false
 <article>
 <h1><a href="/2012/01/06/tag-clouds-with-octopress/index.html">Tag Clouds With Octopress</a></h1>
 <time datetime="2012-01-06T00:00:00-06:00" pubdate><span class='month'>Jan</span> <span class='day'>06</span> <span class='year'>2012</span></time>
-<footer>
-<span class="categories">posted in 
-<a href='/categories/computers/'>Computers</a></span>
-</footer>
-</article>
-<h2>2010</h2>
-
-<article>
-<h1><a href="/2010/02/13/why-should-i-use-cpan/index.html">Why Should I Use CPAN?</a></h1>
-<time datetime="2010-02-13T00:00:00-06:00" pubdate><span class='month'>Feb</span> <span class='day'>13</span> <span class='year'>2010</span></time>
 <footer>
 <span class="categories">posted in 
 <a href='/categories/computers/'>Computers</a></span>
