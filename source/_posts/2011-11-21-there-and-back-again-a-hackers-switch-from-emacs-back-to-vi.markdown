@@ -63,8 +63,8 @@ I'll start off with a discussion how to do something in vim that I could never
 do in vi, and that I did all the time in emacs - rectangular selections. In my
 line of work I often need to select a rectangle of text and operate upon it; I
 may need to delete the rectangle of text, or I may have to append something to
-either of the two edges, or delete something from either of the two edges.  In
-emacs I would use C-x r k and C-x r y to kill and yank, for example.  In vim
+either of the two edges, or delete something from either of the two edges. In
+emacs I would use C-x r k and C-x r y to kill and yank, for example. In vim
 we can use visual mode.
 
 There are three different kinds of visual modes.  Each operates on text
@@ -82,3 +82,20 @@ the text.  Again you will have to end with an ESC, for the same reasons as
 before.  You can copy (yank) the rectangle by hitting 'y'.
 
 [Update 11/29 - Changed header to "The first Vim Tip"]
+
+---
+
+### Update 2012/06/30
+
+Ok.  I tried.  I really did.  Real hard.  But I wound up switching back to
+emacs.  The main reason was that using vim was making me less productive.
+That's not because vim makes one less productive, but because the frequent
+context switching between vim and XCode and other Mac Editors like Coda
+was getting me confused.  I was using vim keystrokes in XCode and
+vice-versa.  Almost all Mac OS X apps (including system apps) understand
+emacs cursor movement key bindings, and teaching myself conflicting
+commands was slowing down the entire process.
+
+As they say on _Mythbusters_, the experiment didn't achieve the intended
+results, but that in itself is not a failure, because I learned something
+along the way.  So until further notice, I'm back to emacs.

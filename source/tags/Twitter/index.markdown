@@ -5,6 +5,16 @@ footer: false
 ---
 
 <div id="blog-archives" class="category">
+<h2>2012</h2>
+
+<article>
+<h1><a href="/2012/07/01/not-as-expected/index.html">Not as Expected</a></h1>
+<time datetime="2012-07-01T00:00:00-06:00" pubdate><span class='month'>Jul</span> <span class='day'>01</span> <span class='year'>2012</span></time>
+<footer>
+<span class="categories">posted in 
+<a href='/categories/computers/'>Computers</a></span>
+</footer>
+</article>
 <h2>2011</h2>
 
 <article>
