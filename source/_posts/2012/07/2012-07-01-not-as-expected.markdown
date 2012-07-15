@@ -5,7 +5,7 @@ date: 2012-07-01 00:35
 comments: false
 categories:
 - Computers
-author: Aijaz
+author: Aijaz Ansari
 tags:
 - Editors
 - Emacs

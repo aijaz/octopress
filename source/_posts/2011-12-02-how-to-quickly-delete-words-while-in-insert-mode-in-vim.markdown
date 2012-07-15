@@ -1,5 +1,5 @@
 ---
-author: Aijaz
+author: Aijaz Ansari
 comments: false
 date: '2011-12-02 09:00:52'
 layout: post
