@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Tag&#58; linux
+title: Tag&#58; mod_perl
 footer: false
 ---
 
@@ -10,16 +10,6 @@ footer: false
 <article>
 <h1><a href="/2012/07/14/installing-modperl2/index.html">Installing Mod_perl 2.0</a></h1>
 <time datetime="2012-07-14T00:00:00-06:00" pubdate><span class='month'>Jul</span> <span class='day'>14</span> <span class='year'>2012</span></time>
-<footer>
-<span class="categories">posted in 
-<a href='/categories/computers/'>Computers</a></span>
-</footer>
-</article>
-<h2>2010</h2>
-
-<article>
-<h1><a href="/2010/04/18/backing-up-data-with-rsync/index.html">Backing Up Data With Rsync</a></h1>
-<time datetime="2010-04-18T00:00:00-06:00" pubdate><span class='month'>Apr</span> <span class='day'>18</span> <span class='year'>2010</span></time>
 <footer>
 <span class="categories">posted in 
 <a href='/categories/computers/'>Computers</a></span>
