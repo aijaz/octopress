@@ -25,7 +25,7 @@ You can find me here:
 * [Twitter](http://twitter.com/_aijaz_)
 * Email - &lt;myfirstname&gt; at &lt;myfirstname&gt; dot net
 * [Linked In](http://www.linkedin.com/in/aijaz)
-* [Google Plus](http://gplus.to/aijaz)
+* <a href="https://plus.google.com/u/0/102749128357279831675" rel="me">Google Plus</a> <!-- http://gplus.to/aijaz -->
 * [SourceForge](http://sourceforge.net/users/enoor)
 * [Stack Overflow](http://careers.stackoverflow.com/aijaz)
 * [GitHub](http://github.com/aijaz)
@@ -36,7 +36,7 @@ You can find me here:
 ## About this blog
 
 This blog is powered by [Octopress](http://www.octopress.org).  The
-individual posts are lovingly formatted as [Markdown](http://daringfireball.net/projects/markdown/)  using [MacVim](http://code.google.com/p/macvim/).
+individual posts are lovingly formatted as [Markdown](http://daringfireball.net/projects/markdown/)  using [emacs](http://emacsformacosx.com/).
 
 ## Licenses
 
@@ -49,4 +49,5 @@ find any image that is not attributed, please email me and let me know.
 
 
 Aijaz Ansari
+
 
