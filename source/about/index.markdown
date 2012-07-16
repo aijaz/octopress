@@ -16,8 +16,7 @@ nifty open-source job scheduler called
 
 I'm a student of Wing Chun Kung Fu, having studied at the excellent
 [Philip Nearing School of Wing Chun](http://wingchunchicago.com/).  I've
-also made a wooden Kung Fu dummy (what a fun project!).  I'll post
-pictures of that soon.
+also [made a Kung Fu wooden dummy](/2012/07/15/making-a-kung-fu-wooden-dummy/) (what a fun project!).  
 
 You can find me here:
 
