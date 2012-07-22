@@ -1,28 +1,30 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
+div.entry-content { font-size: 14pt; }
+
 body > nav a 
 { 
-    font-family: "pragmatica-web";
+    font-family: "minerva-modern";
     font-weight: 400;
     font-style: normal;
 }
 
 span.categories, div.category_list
 { 
-    font-family: "pragmatica-web";
+    font-family: "minerva-modern";
     font-weight: 400;
     font-style: normal;
 }
 
 .titleL { 
-    font-family: "pragmatica-web";
+    font-family: "minerva-modern";
     font-weight: 200;
     font-style: normal;
 }
 
 .titleB { 
-    font-family: "pragmatica-web";
+    font-family: "minerva-modern";
     font-weight: 700;
     font-style: normal;
 }
