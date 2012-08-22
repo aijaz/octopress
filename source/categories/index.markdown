@@ -10,6 +10,7 @@ footer: false
         <li><a href="/categories/computers/">Computers</a></li>
         <li><a href="/categories/diy/">DIY</a></li>
         <li><a href="/categories/design/">Design</a></li>
+        <li><a href="/categories/editorial/">Editorial</a></li>
         <li><a href="/categories/fitness/">Fitness</a></li>
         <li><a href="/categories/knots/">Knots</a></li>
         <li><a href="/categories/photography/">Photography</a></li>
