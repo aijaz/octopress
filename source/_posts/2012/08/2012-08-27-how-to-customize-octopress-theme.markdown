@@ -19,7 +19,9 @@ here's how I did it.
 
 <!-- more -->
 
-## Sass - Style with attitude
+<div style="clear: both"></div>
+
+## Sass - Style With Attitude
 
 Octopress comes with a very well organized hierarchy of style sheets.
 These are not 'merely' CSS3 style sheets but rather Sass documents.
@@ -128,3 +130,12 @@ This made the site look like this:
 And that was it! I hope you found this helpful.  If you play around with
 the Sass files, you'll find that it's very easy to make really complex
 changes to your Octopress theme.
+
+
+### But wait! There's more
+
+Oh, one more thing: I also wanted to use fonts from
+[TypeKit](http://typekit.com).  I signed up with TypeKit and used
+*Chaparral Pro* for the body text and *Minerva Modern* for the headers.  I
+had to change sass/custom/\_fonts.scss and sass/custom/\_styles.scss as
+instructed by the TypeKit documentation.
