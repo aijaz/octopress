@@ -1,8 +1,9 @@
 #!/bin/bash
 
-bundle exec rake generate
+#bundle exec rake generate
+rake generate
 ./tagify.pl --dir .
-bundle exec rake generate
+rake generate
 
 find /Users/aijaz/octopress/public \
      -type f \
