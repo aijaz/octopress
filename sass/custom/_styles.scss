@@ -208,3 +208,39 @@ div#tag_list {
 .tag_page a { 
     color: #666;
 }
+
+// added for the photo layout
+header.condensed {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+h1.condensed {
+    display: inline;
+    font-size: 90%;
+}
+
+h2.condensed {
+   display: inline;
+   font-size: 80%;
+}
+
+div#main.photo {
+ border: 0;
+ }
+
+div#content.photo {
+ border: 0;
+ }
+
+div#photoExifDiv th {
+   font-weight: bold;
+   padding-right: 2em;
+   border: 0;
+}
+
+div#photoExifDiv td {
+   border: 0;
+}
