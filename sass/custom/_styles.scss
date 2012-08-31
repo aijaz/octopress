@@ -236,7 +236,7 @@ div#content.photo {
  }
 
 div#photoExifDiv th {
-   font-weight: bold;
+   font-family: "minerva-modern";
    padding-right: 2em;
    border: 0;
 }
@@ -244,3 +244,10 @@ div#photoExifDiv th {
 div#photoExifDiv td {
    border: 0;
 }
+
+
+div.photoCb {
+clear: both;
+}
+
+        
