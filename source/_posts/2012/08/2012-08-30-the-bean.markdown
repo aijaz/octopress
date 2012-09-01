@@ -7,6 +7,7 @@ categories:
 - Photos
 author: Aijaz Ansari
 image: /images/photos/bean3232.jpg
+thumbnail: /images/photos/bean3232s.jpg
 creator: Aijaz Ansari
 copyright: Copyright 2012 Aijaz Ansari
 scaleFactor: 1.0
@@ -23,6 +24,15 @@ tags:
 - Chicago
 - CloudGate
 - TheBean
+photoWidth: 1024
+photoHeight: 681
+thumbnailWidth: 384
+thumbnailHeight: 256
 ---
 
-"Cloud Gate" - fondly known as The Bean. Millennium Park, Chicago. Looking East, half an hour before a sunrise that was hidden behind clouds. We originally wanted to get a picture of the sun rising under the bean, between the two trees (happens on the equinoxes (equinii?)) but the clouds prevented that and gave us a better shot, instead.
+"Cloud Gate" - fondly known as The Bean. Millennium Park, Chicago. Looking
+East, half an hour before a sunrise that was hidden behind
+clouds.<!-- more --> We originally wanted to get a picture of the sun
+rising under the bean, between the two trees (happens on the equinoxes
+(equinii?)) but the clouds prevented that and gave us a better shot,
+instead. 

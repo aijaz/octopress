@@ -1,3 +1,11 @@
 {% comment %}
   Add content to be output at the bottom of each page. (You might use this for analytics scripts, for example)
 {% endcomment %}
+<!-- footer -->
+{% if page.image %}
+<!-- retina.js -->
+<script type="text/javascript" src="/javascripts/retina.js"></script>
+{% else if index %}
+<!-- retina.js index -->
+<script type="text/javascript" src="/javascripts/retina.js"></script>
+{% endif %}

@@ -15,15 +15,17 @@ my $image;
 my $title;
 my @tags;
 my $date;
+my $thumbnail;
 
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
 $mon++;
 $year += 1900;
 
 Getopt::Long::GetOptions(
-    "image=s"   => \$image,
-    "title=s"   => \$title,
-    "tag=s"     => \@tags,
+    "image=s"     => \$image,
+    "thumbnail=s" => \$thumbnail,
+    "title=s"     => \$title,
+    "tag=s"       => \@tags,
     );
 
 my $fileTitle = lc($title);
@@ -43,8 +45,16 @@ elsif (! -d $dir) {
 }
 
 my $fileName = sprintf("$dir/%d-%02d-%02d-%s.markdown", $year, $mon, $mday, $fileTitle);
+print "fileName: $fileName\n\n";
 
 my $exif = ImageInfo($image);
+
+unless ($thumbnail) {
+    $thumbnail = $image;
+    $thumbnail =~ s/\./T./;
+}
+
+my $exif_t = ImageInfo($thumbnail);
 
 if (-e $fileName) {
     die "$fileName already exists - Will not overwrite an existing file";
@@ -54,6 +64,9 @@ my $postDate = sprintf("%d-%02d-%02d %02d:%02d", $year, $mon, $mday, $hour, $min
 
 my $imageUrl = $image;
 $imageUrl =~ s/.*source//;
+
+my $thumbnailUrl = $thumbnail;
+$thumbnailUrl =~ s/.*source//;
 
 my $tags = "";
 if (@tags) {
@@ -74,6 +87,7 @@ print F join("\n",
              "categories:",
              "- Photos",
              "author: Aijaz Ansari",
+             "thumbnail: $thumbnailUrl",
              "${tags}image: $imageUrl",
              "",
     );
@@ -100,6 +114,10 @@ elsif ($exif->{"CreateDate"}) { $hash{dateTaken} = $exif->{"CreateDate"}; }
 elsif ($exif->{"DateCreated"}) { $hash{dateTaken} = $exif->{"DateCreated"}; }
 if ($exif->{"Copyright"}) { $hash{copyright} = $exif->{"Copyright"}; }
 elsif ($exif->{"CopyrightNotice"}) { $hash{copyright} = $exif->{"CopyrightNotice"}; }
+$hash{photoWidth} = $exif->{"ImageWidth"};
+$hash{photoHeight} = $exif->{"ImageHeight"};
+$hash{thumbnailWidth} = $exif_t->{"ImageWidth"};
+$hash{thumbnailHeight} = $exif_t->{"ImageHeight"};
 
 $hash{creator} = $creator unless $hash{creator};
 $hash{lens} = '"'.$hash{lens}.'"';
