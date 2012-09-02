@@ -7,6 +7,7 @@ use Getopt::Long;
 use Image::ExifTool qw(:Public);
 use File::Basename;
 use File::Path qw (make_path);
+use File::Copy;
 
 my $creator = "Aijaz Ansari";
 
@@ -16,6 +17,8 @@ my $title;
 my @tags;
 my $date;
 my $thumbnail;
+my $histogram;
+my $exif_h;
 
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
 $mon++;
@@ -24,6 +27,7 @@ $year += 1900;
 Getopt::Long::GetOptions(
     "image=s"     => \$image,
     "thumbnail=s" => \$thumbnail,
+    "histogram=s" => \$histogram,
     "title=s"     => \$title,
     "tag=s"       => \@tags,
     );
@@ -54,30 +58,41 @@ unless ($thumbnail) {
     $thumbnail =~ s/\./T./;
 }
 
-my $exif_t = ImageInfo($thumbnail);
-
-if (-e $fileName) {
-    die "$fileName already exists - Will not overwrite an existing file";
-}
-
 my $postDate = sprintf("%d-%02d-%02d %02d:%02d", $year, $mon, $mday, $hour, $min);
 
 my $imageUrl = $image;
 $imageUrl =~ s/.*source//;
 
-my $thumbnailUrl = $thumbnail;
-$thumbnailUrl =~ s/.*source//;
+my %hash = ();
+
+if ($thumbnail) {
+    my $thumbnailUrl = $thumbnail;
+    $thumbnailUrl =~ s/.*source//;
+    $hash{thumbnail} = $thumbnailUrl;
+    my $exif_t = ImageInfo($thumbnail);
+    $hash{thumbnailWidth} = $exif_t->{"ImageWidth"};
+    $hash{thumbnailHeight} = $exif_t->{"ImageHeight"};
+}
+
+if ($histogram) {
+    my $histogramUrl = $histogram;
+    $histogramUrl =~ s/.*source//;
+    $hash{histogram} = $histogramUrl;
+    my $exif_h = ImageInfo($histogram);
+    $hash{histogramWidth} = $exif_h->{"ImageWidth"};
+    $hash{histogramHeight} = $exif_h->{"ImageHeight"};
+}
 
 my $tags = "";
 if (@tags) {
-    $tags = join("\n",
-                 "tags:",
-                 (map { "- $_" } @tags),
-                 ""
+    $hash{tags} = join("\n",
+                         "",
+                         (map { "- $_" } @tags)
         );
 }
 
-open (F, ">$fileName") || die "Cannot open $fileName for writing";
+
+open (F, ">$fileName.temp") || die "Cannot open $fileName for writing";
 print F join("\n",
              "---",
              "layout: photo",
@@ -87,12 +102,9 @@ print F join("\n",
              "categories:",
              "- Photos",
              "author: Aijaz Ansari",
-             "thumbnail: $thumbnailUrl",
-             "${tags}image: $imageUrl",
+             "image: $imageUrl",
              "",
     );
-
-my %hash = ();
 
 #print Dumper (keys %$exif);
 
@@ -116,8 +128,6 @@ if ($exif->{"Copyright"}) { $hash{copyright} = $exif->{"Copyright"}; }
 elsif ($exif->{"CopyrightNotice"}) { $hash{copyright} = $exif->{"CopyrightNotice"}; }
 $hash{photoWidth} = $exif->{"ImageWidth"};
 $hash{photoHeight} = $exif->{"ImageHeight"};
-$hash{thumbnailWidth} = $exif_t->{"ImageWidth"};
-$hash{thumbnailHeight} = $exif_t->{"ImageHeight"};
 
 $hash{creator} = $creator unless $hash{creator};
 $hash{lens} = '"'.$hash{lens}.'"';
@@ -128,12 +138,33 @@ my $license = qq^
 
 $hash{license} = qq[<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>];
 
-foreach my $k (keys (%hash) ) {
+foreach my $k (sort keys (%hash) ) {
     print  F "$k: $hash{$k}\n";
 }
 print F "---\n";
 
-
+# if the actual file already exists, and if there's any text there, print it here, so we don't lose it
+if (open (ORIG, "$fileName")) {
+    my $numSeen = 0;
+    while (<ORIG>) {
+        if (/^---\s*$/) {
+            $numSeen++;
+            if ($numSeen == 2) {
+                last;
+            }
+        }
+    }
+    while (<ORIG>) {
+        print F $_;
+    }
+    close ORIG;
+}
 
 close F;
+
+my $success = move("$fileName.temp", $fileName);
+if (! $success) {
+    die "Couldn't move temp file \n  $fileName.tmp \n  to actual file\n  $fileName\n\n  Actual file may be corrupted. Recover data from temp file now.";
+}
+
 

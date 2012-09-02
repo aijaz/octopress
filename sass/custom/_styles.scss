@@ -235,22 +235,23 @@ div#content.photo {
  border: 0;
  }
 
-div#photoExifDiv th {
+div#photoExifDiv tr th {
    font-family: "minerva-modern";
    padding-right: 2em;
    border: 0;
 }
 
-div#photoExifDiv td {
+div#photoExifDiv tr td {
    border: 0;
 }
 
-
-div.photoCb {
-clear: both;
+div#photoExifDiv tr td {
+   border-bottom: 1px dotted #ccc;
 }
+
 
 div.photoThumbnail {
  float: left;
  margin-right: 1em;
+ margin-bottom: 1em;
  }
