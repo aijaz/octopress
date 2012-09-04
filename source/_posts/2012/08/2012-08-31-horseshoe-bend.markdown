@@ -9,8 +9,8 @@ author: Aijaz Ansari
 thumbnail: /images/photos/arizona/horseshoe_tn.jpg
 tags:
 - Arizona
-- Grand Canyon
-- Horseshoe Bend
+- GrandCanyon
+- HorseshoeBend
 image: /images/photos/arizona/horseshoe.jpg
 histogram: /images/photos/arizona/horseshoe_hist.png
 histogramWidth: 256
@@ -29,7 +29,7 @@ focalLength: 24.0 mm
 scaleFactor: 1.0
 aperture: 9.0
 camera: NIKON D700
-license: <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a>
+license: <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png" /></a>
 dateTaken: 2012:03:29 17:35:23
 ---
 
