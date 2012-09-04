@@ -235,19 +235,6 @@ div#content.photo {
  border: 0;
  }
 
-div#photoExifDiv tr th {
-   font-family: "minerva-modern";
-   padding-right: 2em;
-   border: 0;
-}
-
-div#photoExifDiv tr td {
-   border: 0;
-}
-
-div#photoExifDiv tr td {
-   border-bottom: 1px dotted #ccc;
-}
 
 
 div.photoThumbnail {
@@ -255,3 +242,26 @@ div.photoThumbnail {
  margin-right: 1em;
  margin-bottom: 1em;
  }
+
+ img.nb {
+   border: 1px solid red;
+   background: #fff;
+ }
+ img.sb {
+   border: 1px solid #666;
+ }
+
+
+div.photocb {
+  clear: both;
+}
+
+h1.photo-entry-title {
+display: inline;
+font-size: 1em;
+margin-bottom: 0;
+}
+
+div#photoExifDiv {
+font-size: 0.7em;
+}

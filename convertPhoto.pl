@@ -29,7 +29,7 @@ my $tn = "$path${realBase}_tn$suffix";
 my $tn2 = "$path${realBase}_tn\@2x$suffix";
 my $hist = "$path${realBase}_hist.png";
 
-# original dimensions should be 2040x1360
+# original dimensions should be 2040x1360 or 902x1356
 my $img_info         = `identify $image`;
 my @info_list        = split(/ /, $img_info);
 my ($width, $height) = $info_list[2] =~ /(\d+)x(\d+)/;
@@ -46,10 +46,12 @@ else {
     doSys("convert $image -resize  '512x768' $tn2");
 }
 doSys("convert $image -define histogram:unique-colors=false  histogram:$hist");
+doSys("mogrify -format png -fuzz 40% -fill \"#333333\" -opaque \"#000000\" -resize 256x100! $hist");
 
-my $tags = join (" ", (map { "--tag $_"} @tags));
+my $tags = join (" ", (map { "--tag '$_'"} @tags));
 
 doSys("./generatePhotoPost.pl --image $regularImage --thumbnail $tn --title '$title' --histogram $hist $tags");
+
 
 sub doSys {
     my $cmd = shift;

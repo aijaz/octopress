@@ -6,12 +6,15 @@ comments: false
 categories:
 - Photos
 author: Aijaz Ansari
-thumbnail: /images/photos/horseshoeT.jpg
+thumbnail: /images/photos/arizona/horseshoe_tn.jpg
 tags:
 - Arizona
 - Grand Canyon
 - Horseshoe Bend
-image: /images/photos/horseshoe.jpg
+image: /images/photos/arizona/horseshoe.jpg
+histogram: /images/photos/arizona/horseshoe_hist.png
+histogramWidth: 256
+histogramHeight: 100
 thumbnailHeight: 256
 creator: Aijaz Ansari
 copyright: Copyright 2012 Aijaz Ansari
@@ -30,4 +33,6 @@ license: <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0
 dateTaken: 2012:03:29 17:35:23
 ---
 
-This is a bend of the Colorado River located near Page, Arizona. In Page you can find the famous Antelope Canyons.
+This is a bend of the Colorado River located near Page, Arizona. In Page
+you can find the famous
+[Antelope Canyons](/2012/09/02/antelope-canyon/).

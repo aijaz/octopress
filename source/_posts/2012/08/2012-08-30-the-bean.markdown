@@ -6,8 +6,11 @@ comments: false
 categories:
 - Photos
 author: Aijaz Ansari
-image: /images/photos/bean3232.jpg
-thumbnail: /images/photos/bean3232s.jpg
+image: /images/photos/bean/bean3232.jpg
+thumbnail: /images/photos/bean/bean3232_tn.jpg
+histogram: /images/photos/bean/bean3232_hist.png
+histogramWidth: 256
+histogramHeight: 100
 creator: Aijaz Ansari
 copyright: Copyright 2012 Aijaz Ansari
 scaleFactor: 1.0

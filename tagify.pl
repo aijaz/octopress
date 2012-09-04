@@ -254,8 +254,10 @@ sub getTags {
 
     # Get the title
     #
-    my $title = $tree->look_down(_tag  => "h1", 
-                                 class => "entry-title");
+    my $title = $tree->look_down(_tag  => "h1", class => "entry-title");
+    if (!$title) {
+        $title = $tree->look_down(_tag  => "span", class => "photo-entry-title");
+    }
     $title = $title->as_trimmed_text();
 
     # Get the categories

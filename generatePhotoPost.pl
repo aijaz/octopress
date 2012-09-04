@@ -69,19 +69,24 @@ if ($thumbnail) {
     my $thumbnailUrl = $thumbnail;
     $thumbnailUrl =~ s/.*source//;
     $hash{thumbnail} = $thumbnailUrl;
-    my $exif_t = ImageInfo($thumbnail);
-    $hash{thumbnailWidth} = $exif_t->{"ImageWidth"};
-    $hash{thumbnailHeight} = $exif_t->{"ImageHeight"};
+    my $img_info         = `identify $thumbnail`;
+    my @info_list        = split(/ /, $img_info);
+    ($hash{thumbnailWidth}, $hash{thumbnailHeight}) = $info_list[2] =~ /(\d+)x(\d+)/;
 }
 
 if ($histogram) {
     my $histogramUrl = $histogram;
     $histogramUrl =~ s/.*source//;
     $hash{histogram} = $histogramUrl;
-    my $exif_h = ImageInfo($histogram);
-    $hash{histogramWidth} = $exif_h->{"ImageWidth"};
-    $hash{histogramHeight} = $exif_h->{"ImageHeight"};
+    my $img_info         = `identify $histogram`;
+    my @info_list        = split(/ /, $img_info);
+    ($hash{histogramWidth}, $hash{histogramHeight}) = $info_list[2] =~ /(\d+)x(\d+)/;
 }
+
+my $img_info         = `identify $image`;
+my @info_list        = split(/ /, $img_info);
+($hash{photoWidth}, $hash{photoHeight}) = $info_list[2] =~ /(\d+)x(\d+)/;
+
 
 my $tags = "";
 if (@tags) {
@@ -126,8 +131,6 @@ elsif ($exif->{"CreateDate"}) { $hash{dateTaken} = $exif->{"CreateDate"}; }
 elsif ($exif->{"DateCreated"}) { $hash{dateTaken} = $exif->{"DateCreated"}; }
 if ($exif->{"Copyright"}) { $hash{copyright} = $exif->{"Copyright"}; }
 elsif ($exif->{"CopyrightNotice"}) { $hash{copyright} = $exif->{"CopyrightNotice"}; }
-$hash{photoWidth} = $exif->{"ImageWidth"};
-$hash{photoHeight} = $exif->{"ImageHeight"};
 
 $hash{creator} = $creator unless $hash{creator};
 $hash{lens} = '"'.$hash{lens}.'"';

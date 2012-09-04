@@ -22,6 +22,7 @@ close I;
 #
 foreach my $line (@lines) { 
     $line =~ s^<!-- ai\s+(\S+)\s+(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(.*?)\s*-->^makeDiv($1, $2, $3, $4, $5, $6)^ge;
+    $line =~ s#<!-- photo\s+\^([^\^]+)\^\s+(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(.*?)\s*-->#makePhoto($1, $2, $3, $4, $5, $6)#ge;
 }
 
 # Save the possibly modified contents of the 'lines' array
@@ -72,5 +73,32 @@ sub makeDiv {
                     qq^alt="$caption" ^,
                     qq^border=0></a><br>^,
             qq^$caption</div>^);
+}
+
+sub makePhoto {
+
+    # The enclosing div should be this much bigger
+    # than the image.  This accounts for the white margin
+    # that octopress puts around the image
+    #
+    my $width_inc = 20;
+
+    my ($alt, $target, $image, 
+        $width, $height, $caption) = @_;
+    
+    my $div_width = $width + $width_inc;
+
+    # Construct the html.  Note that the css class is
+    # 'ai' followed by the value of the 'align' component.
+    #
+    return join("",
+        qq^<div> <div class="aic" style="width:${div_width}px">^,
+            qq^<a href="$target" title="$alt">^,
+                qq^<img src="$image" ^,
+                    qq^width="$width" ^,
+                    qq^height="$height" ^,
+                    qq^alt="$alt" ^,
+                    qq^border=0></a><br>^,
+            qq^</div><div class=photoExifCenter>$caption</div></div>^);
 }
 
