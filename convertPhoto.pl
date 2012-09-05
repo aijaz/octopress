@@ -46,11 +46,13 @@ else {
     doSys("convert $image -resize  '512x768' $tn2");
 }
 doSys("convert $image -define histogram:unique-colors=false  histogram:$hist");
-doSys("mogrify -format png -fuzz 40% -fill \"#333333\" -opaque \"#000000\" -resize 256x100! $hist");
+doSys("mogrify -format png -fuzz 40% -fill \"#999999\" -opaque \"#000000\" -resize 128x50! $hist");
 
 my $tags = join (" ", (map { "--tag '$_'"} @tags));
 
-doSys("./generatePhotoPost.pl --image $regularImage --thumbnail $tn --title '$title' --histogram $hist $tags");
+if ($title) {
+    doSys("./generatePhotoPost.pl --image $regularImage --thumbnail $tn --title '$title' --histogram $hist $tags");
+}
 
 
 sub doSys {

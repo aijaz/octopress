@@ -6,25 +6,25 @@ comments: false
 categories:
 - Photos
 author: Aijaz Ansari
-thumbnail: /images/photos/arizona/horseshoe_tn.jpg
+thumbnail: /images/photos/arizona/P_JAZ4129_tn.jpg
 tags:
 - Arizona
 - GrandCanyon
 - HorseshoeBend
-image: /images/photos/arizona/horseshoe.jpg
-histogram: /images/photos/arizona/horseshoe_hist.png
-histogramWidth: 256
-histogramHeight: 100
+image: /images/photos/arizona/P_JAZ4129.jpg
+histogram: /images/photos/arizona/P_JAZ4129_hist.png
+histogramWidth: 128
+histogramHeight: 50
 thumbnailHeight: 256
 creator: Aijaz Ansari
 copyright: Copyright 2012 Aijaz Ansari
 lens: "AF-S VR Zoom-Nikkor 24-120mm f/3.5-5.6G IF-ED"
 shutterSpeed: 1/320
-photoWidth: 1024
+photoWidth: 768
 thumbnailWidth: 384
 iso: 200
 flash: No Flash
-photoHeight: 681
+photoHeight: 511
 focalLength: 24.0 mm
 scaleFactor: 1.0
 aperture: 9.0

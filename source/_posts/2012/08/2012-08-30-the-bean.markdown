@@ -6,11 +6,11 @@ comments: false
 categories:
 - Photos
 author: Aijaz Ansari
-image: /images/photos/bean/bean3232.jpg
-thumbnail: /images/photos/bean/bean3232_tn.jpg
-histogram: /images/photos/bean/bean3232_hist.png
-histogramWidth: 256
-histogramHeight: 100
+image: /images/photos/bean/P_JAZ3232.jpg
+thumbnail: /images/photos/bean/P_JAZ3232_tn.jpg
+histogram: /images/photos/bean/P_JAZ3232_hist.png
+histogramWidth: 128
+histogramHeight: 50
 creator: Aijaz Ansari
 copyright: Copyright 2012 Aijaz Ansari
 scaleFactor: 1.0
@@ -27,8 +27,8 @@ tags:
 - Chicago
 - CloudGate
 - TheBean
-photoWidth: 1024
-photoHeight: 681
+photoWidth: 768
+photoHeight: 511
 thumbnailWidth: 384
 thumbnailHeight: 256
 ---

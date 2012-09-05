@@ -27,6 +27,34 @@
   {% endif %}
 {% else %}
 
+
+<div class="aic" style="width:788px">
+  <a href="{{ page.image }}"
+     title="ISO {{ page.iso }} :: f/{{ page.aperture }} :: {{ page.shutterSpeed }}s :: {{ page.focalLength }} :: {{ page.flash }}{% if page.expComp %} :: {{ page.expComp }}ev{% endif %}"
+     ><img
+         src="{{ page.image }}"
+         width="{{ page.photoWidth }}"
+         height="{{ page.photoHeight }}"
+         alt="ISO {{ page.iso }} :: f/{{ page.aperture }} :: {{ page.shutterSpeed }}s :: {{ page.focalLength }} :: {{ page.flash }}{% if page.expComp %} :: {{ page.expComp }}ev{% endif %}"
+         border="0" /></a>
+  <br>
+  <div class="photoDescL">
+    <span class="photo-entry-title">{{ page.title }}</span> {{ content }}
+  </div>
+  <div class="photoDescR">
+    {% if page.histogram %}<img align="right" style="border-width: 0; border-radius: 0; border: 1px solid #999999;"  alt="Histogram" width="{{ page.histogramWidth }}" height="{{ page.histogramHeight }}" src="{{ page.histogram }}">{% endif %}
+    ISO {{ page.iso }} ::
+    f/{{ page.aperture }} ::
+    {{ page.shutterSpeed }}s ::
+    {{ page.focalLength }} ::
+    {{ page.flash }}
+    {% if page.expComp %} :: {{ page.expComp }}ev{% endif %}<br>
+    {% if page.copyright %}{{ page.copyright }}<br>{% endif %}
+    {% if page.license %}{{ page.license }}<br>{% endif  %}
+    {% if page.camera and page.lens and page.dateTaken %}Taken with a {{ page.camera }} and {{ page.lens }} on {{ page.dateTaken }}.<br>{% endif %}
+    </div>
+</div>    
+
     <!-- ai c {{ page.image }} {{ page.image }} {{ page.photoWidth }} {{ page.photoHeight }} ISO {{ page.iso }} :: f/{{ page.aperture }} :: {{ page.shutterSpeed }}s :: {{ page.focalLength }} :: {{ page.flash }}{% if page.expComp %} :: {{ page.expComp }}ev{% endif %} -->
 
     
