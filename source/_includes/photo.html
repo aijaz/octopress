@@ -55,18 +55,6 @@
     </div>
 </div>    
 
-    <!-- ai c {{ page.image }} {{ page.image }} {{ page.photoWidth }} {{ page.photoHeight }} ISO {{ page.iso }} :: f/{{ page.aperture }} :: {{ page.shutterSpeed }}s :: {{ page.focalLength }} :: {{ page.flash }}{% if page.expComp %} :: {{ page.expComp }}ev{% endif %} -->
-
-    
-    <div class="entry-content">
-        <div id="photoDescriptionDiv"><h1 class="photo-entry-title" >{{ page.title }}</h1> {{ content }}</div>
-        <div id="photoExifDiv">
-          {% if page.histogram %}<img style="border-width: 0; border-radius: 0; border: 1px solid #333;"  alt="Histogram" width="{{ page.histogramWidth }}" height="{{ page.histogramHeight }}" src="{{ page.histogram }}"><br>{% endif %}
-          {% if page.copyright %}{{ page.copyright }}<br>{% endif %}
-          {% if page.license %}{{ page.license }}<br>{% endif  %}
-          {% if page.camera and page.lens and page.dateTaken %}Taken with a {{ page.camera }} and {{ page.lens }} on {{ page.dateTaken }}.<br>{% endif %}
-        </div>
-    </div>
 
 {% endif %}
 
