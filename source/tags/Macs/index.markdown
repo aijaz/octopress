@@ -5,6 +5,16 @@ footer: false
 ---
 
 <div id="blog-archives" class="category">
+<h2>2012</h2>
+
+<article>
+<h1><a href="/2012/09/05/this-is-why-i-like-my-11-inch-macbook-air/index.html">This Is Why I Love My 11-inch MacBook Air</a></h1>
+<time datetime="2012-09-05T00:00:00-06:00" pubdate><span class='month'>Sep</span> <span class='day'>05</span> <span class='year'>2012</span></time>
+<footer>
+<span class="categories">posted in 
+<a href='/categories/photos/'>Photos</a></span>
+</footer>
+</article>
 <h2>2010</h2>
 
 <article>

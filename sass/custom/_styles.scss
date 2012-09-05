@@ -264,11 +264,12 @@ div.photoThumbnail {
  }
 
 
-span.photo-entry-title {
-display: inline;
-margin-right: 1em;
-font-weight: bold;
+div.aip h1.entry-title {
+font-size: 1em;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
 }
+
 
 div.photoDescL {
    text-align: left;

@@ -133,7 +133,9 @@ if ($exif->{"Copyright"}) { $hash{copyright} = $exif->{"Copyright"}; }
 elsif ($exif->{"CopyrightNotice"}) { $hash{copyright} = $exif->{"CopyrightNotice"}; }
 
 $hash{creator} = $creator unless $hash{creator};
-$hash{lens} = '"'.$hash{lens}.'"';
+if ($hash{lens}) {
+    $hash{lens} = '"'.$hash{lens}.'"';
+}
 
 my $license = qq^
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type">$title</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="{{ site.root }}/$imageUrl" property="cc:attributionName" rel="cc:attributionURL">$hash{creator}</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.
