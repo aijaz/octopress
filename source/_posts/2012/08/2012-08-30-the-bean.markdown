@@ -31,6 +31,7 @@ photoWidth: 768
 photoHeight: 511
 thumbnailWidth: 384
 thumbnailHeight: 256
+description: Cloud Gate - fondly known as The Bean.
 ---
 
 "Cloud Gate" - fondly known as The Bean. Millennium Park, Chicago. Looking

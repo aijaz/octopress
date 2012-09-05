@@ -30,6 +30,7 @@ tags:
 thumbnail: /images/photos/arizona/P_JAZ4109_tn.jpg
 thumbnailHeight: 384
 thumbnailWidth: 255
+description: The Lower Antelope Canyon in Page, Arizona is a place of breathtaking beauty.
 ---
 
 The Lower Antelope Canyon in Page, Arizona is a place of breathtaking

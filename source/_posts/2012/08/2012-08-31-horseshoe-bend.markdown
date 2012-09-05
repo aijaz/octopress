@@ -31,6 +31,7 @@ aperture: 9.0
 camera: NIKON D700
 license: <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png" /></a>
 dateTaken: 2012:03:29 17:35:23
+description: The Horseshoe bend is a bend of the Colorado River located near Page, Arizona. 
 ---
 
 This is a bend of the Colorado River located near Page, Arizona. In Page
