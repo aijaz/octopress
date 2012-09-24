@@ -4,7 +4,7 @@ title: "This is why I love my 11-inch MacBook Air"
 date: 2012-09-05 13:21
 comments: false
 categories:
-- Photos
+- Computers
 author: Aijaz Ansari
 image: /images/photos/MBA11/MBA11.png
 creator: Aijaz Ansari

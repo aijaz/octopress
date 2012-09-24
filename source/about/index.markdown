@@ -21,6 +21,7 @@ also [made a Kung Fu wooden dummy](/2012/07/15/making-a-kung-fu-wooden-dummy/) (
 You can find me here:
 
 * [This blog](http://www.aijazansari.com/)
+* [App.net](https://alpha.app.net/aijaz)
 * [Twitter](http://twitter.com/_aijaz_)
 * Email - &lt;myfirstname&gt; at &lt;myfirstname&gt; dot net
 * [Linked In](http://www.linkedin.com/in/aijaz)

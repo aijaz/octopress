@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Tag&#58; Security
+title: Tag&#58; Hashes
 footer: false
 ---
 
@@ -19,16 +19,6 @@ footer: false
 <article>
 <h1><a href="/2012/09/22/protecting-your-users-privacy/index.html">Protecting Your Users' Privacy</a></h1>
 <time datetime="2012-09-22T00:00:00-06:00" pubdate><span class='month'>Sep</span> <span class='day'>22</span> <span class='year'>2012</span></time>
-<footer>
-<span class="categories">posted in 
-<a href='/categories/computers/'>Computers</a></span>
-</footer>
-</article>
-<h2>2010</h2>
-
-<article>
-<h1><a href="/2010/02/26/the-most-dangerous-programming-errors/index.html">The Most Dangerous Programming Errors</a></h1>
-<time datetime="2010-02-26T00:00:00-06:00" pubdate><span class='month'>Feb</span> <span class='day'>26</span> <span class='year'>2010</span></time>
 <footer>
 <span class="categories">posted in 
 <a href='/categories/computers/'>Computers</a></span>
