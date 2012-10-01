@@ -6,6 +6,44 @@ use Data::Dumper;
 use Getopt::Long;
 use File::Basename;
 
+=head1 SYNOPSIS
+
+ convertPhoto.pl --image /path/to/image@2x.jpg --title "Title of the post" --tag Tag1 --tag Tag2 --tag Tag3
+
+ The image must exist and its name must end with @2x.  For the
+ purposes of this doc, we'll assume that the filename is image@2x.jpg.
+
+This script will do the following:
+
+=over 4
+
+=item 1
+
+Scale image@2x.jpg to 50% and save the scaled image as image.jpg
+
+=item 2
+
+Scale image@2x.jpg to 384x256 or (256x384 if portrait) and save it as the thumbnail image image_tn.jpg
+
+=item 3
+
+Scale image@2x.jpg to 768x512 or (512x768 if portrait) and save it as the thumbnail image image_tn@2x.jpg
+
+=item 4
+
+Create a 128x50 histogram of the image and save it as image_hist.jpg
+
+=item 5
+
+If the --title option was specified, it will invoke generatePhotoPost.pl to save the relevant information into the photo post
+
+=back
+
+This script requires the ImageMagick set of tools.  For more information on ImageMagic, visit http://www.imagemagick.org/.
+
+=cut    
+    
+
 my $image = '';
 my $title = '';
 my @tags;
@@ -55,7 +93,7 @@ if ($title) {
 }
 
 
-sub doSys {
+ sub doSys {
     my $cmd = shift;
     print "SYS: $cmd\n";
     my $a = `$cmd`;

@@ -2,6 +2,27 @@
 
 use strict;
 use warnings;
+
+=head1 SYNOPSIS
+
+ generatePhotoPost.pl --image i.jpg --thumbnail t.jpg --histogram h.jpg --title "Title" --tag Tag1 --tag Tag2 --date YYYYMMDDhhmm
+
+ This script creates a directory, if necessary, based on the current
+ date, or YYYYMMDDhhmm, if specified. 
+
+ The script will then extract the EXIF information from the image file
+ i.jpg.  It will also extract size information from the image,
+ thumbnail and histogram files.
+
+ It will then create the YAML preamble for the blog post.  If the blog
+ post already exists, it will combine the new YAML preamble with the
+ old contents and save that to the blog post file.  If the blog post
+ does not already exist, it will be created in the proper place with a
+ complete YAML preamble and empty contents.
+
+=cut    
+
+
 use Data::Dumper;
 use Getopt::Long;
 use Image::ExifTool qw(:Public);
@@ -23,6 +44,8 @@ my $exif_h;
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
 $mon++;
 $year += 1900;
+my $specifiedDate = undef;
+
 
 Getopt::Long::GetOptions(
     "image=s"     => \$image,
@@ -30,12 +53,18 @@ Getopt::Long::GetOptions(
     "histogram=s" => \$histogram,
     "title=s"     => \$title,
     "tag=s"       => \@tags,
+    "date=s"      => \$specifiedDate,
     );
 
+# Convert spaces in the title to dashes
 my $fileTitle = lc($title);
 $fileTitle    =~ s/\s+/-/g;
 $fileTitle    =~ s/^\-//;
 $fileTitle    =~ s/\-$//;
+
+if ($specifiedDate) {
+    ($year, $mon, $mday, $hour, $min) = $specifiedDate =~ /(....)(..)(..)(..)(..)/;
+}
 
 my $dir = sprintf("source/_posts/%d/%02d", $year, $mon);
 print "Directory: $dir\n";
@@ -51,8 +80,10 @@ elsif (! -d $dir) {
 my $fileName = sprintf("$dir/%d-%02d-%02d-%s.markdown", $year, $mon, $mday, $fileTitle);
 print "fileName: $fileName\n\n";
 
+# Get exif info from image
 my $exif = ImageInfo($image);
 
+# use a default thumbnail filename if one hasn't been provided
 unless ($thumbnail) {
     $thumbnail = $image;
     $thumbnail =~ s/\./T./;
@@ -65,6 +96,7 @@ $imageUrl =~ s/.*source//;
 
 my %hash = ();
 
+# Get info for the thumbnail
 if ($thumbnail) {
     my $thumbnailUrl = $thumbnail;
     $thumbnailUrl =~ s/.*source//;
@@ -74,6 +106,7 @@ if ($thumbnail) {
     ($hash{thumbnailWidth}, $hash{thumbnailHeight}) = $info_list[2] =~ /(\d+)x(\d+)/;
 }
 
+# Get info for the histogram
 if ($histogram) {
     my $histogramUrl = $histogram;
     $histogramUrl =~ s/.*source//;
@@ -83,6 +116,7 @@ if ($histogram) {
     ($hash{histogramWidth}, $hash{histogramHeight}) = $info_list[2] =~ /(\d+)x(\d+)/;
 }
 
+# Get info for the image
 my $img_info         = `identify $image`;
 my @info_list        = split(/ /, $img_info);
 ($hash{photoWidth}, $hash{photoHeight}) = $info_list[2] =~ /(\d+)x(\d+)/;
@@ -96,6 +130,8 @@ if (@tags) {
         );
 }
 
+
+# Create the YAML text
 
 open (F, ">$fileName.temp") || die "Cannot open $fileName for writing";
 print F join("\n",
@@ -148,7 +184,9 @@ foreach my $k (sort keys (%hash) ) {
 }
 print F "---\n";
 
-# if the actual file already exists, and if there's any text there, print it here, so we don't lose it
+# if the actual file already exists, and if there's any text there,
+# print it here, so we don't lose it
+
 if (open (ORIG, "$fileName")) {
     my $numSeen = 0;
     while (<ORIG>) {
