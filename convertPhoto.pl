@@ -8,7 +8,7 @@ use File::Basename;
 
 =head1 SYNOPSIS
 
- convertPhoto.pl --image /path/to/image@2x.jpg --title "Title of the post" --tag Tag1 --tag Tag2 --tag Tag3
+ convertPhoto.pl --image /path/to/image@2x.jpg --title "Title of the post" --date YYYYMMDDhhmm--tag Tag1 --tag Tag2 --tag Tag3
 
  The image must exist and its name must end with @2x.  For the
  purposes of this doc, we'll assume that the filename is image@2x.jpg.
@@ -37,6 +37,10 @@ Create a 128x50 histogram of the image and save it as image_hist.jpg
 
 If the --title option was specified, it will invoke generatePhotoPost.pl to save the relevant information into the photo post
 
+=item 6
+
+If -date is specified, it will be passed on to generatePhotoPost.pl
+
 =back
 
 This script requires the ImageMagick set of tools.  For more information on ImageMagic, visit http://www.imagemagick.org/.
@@ -47,10 +51,12 @@ This script requires the ImageMagick set of tools.  For more information on Imag
 my $image = '';
 my $title = '';
 my @tags;
+my $date = '';
 Getopt::Long::GetOptions(
     "image=s"     => \$image,
     "title=s"     => \$title,
     "tag=s"       => \@tags,
+    "date=s"      => \$date,
     );
 
 die "--image ($image)  not specified or does not point to an existing file" unless -f $image;
@@ -89,7 +95,12 @@ doSys("mogrify -format png -fuzz 40% -fill \"#999999\" -opaque \"#000000\" -resi
 my $tags = join (" ", (map { "--tag '$_'"} @tags));
 
 if ($title) {
-    doSys("./generatePhotoPost.pl --image $regularImage --thumbnail $tn --title '$title' --histogram $hist $tags");
+    if ($date) {
+        doSys("./generatePhotoPost.pl --image $regularImage --thumbnail $tn --title '$title' --date $date --histogram $hist $tags");
+    }
+    else { 
+        doSys("./generatePhotoPost.pl --image $regularImage --thumbnail $tn --title '$title' --histogram $hist $tags");
+    }
 }
 
 
