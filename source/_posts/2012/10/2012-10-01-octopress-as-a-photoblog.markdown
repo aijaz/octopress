@@ -14,14 +14,14 @@ description: "In this post I illustrate how I modified the default Octopress the
 
 <!-- ai l /images/photoblog/hero.png /images/photoblog/heroSmall.png 320 480 A Layout for Photos -->
 
-As an amateur photographer I like displaying my photos on my blog, especially when there are particularly interesting stories behind them. In this post I illustrate how I modified the default Octopress theme and added a type of layout that highlights a single photograph.  You can see an example of this in [this sample blog](http://testphoto.aijazansari.com).  The first post in this sample blog is a "regular" post, and the second is a photo post - a photo of Cloud Gate, also known as "The Bean."
+As an amateur photographer I like displaying my photos on my blog, especially when there are particularly interesting stories behind them. In this post I'll show you how to modify the default Octopress theme and add a type of layout that highlights a single photograph.  You can see an example of this in [this sample blog](http://testphoto.aijazansari.com).  The first post in this sample blog is a "regular" post, and the second is a photo post - a photo of Cloud Gate, also known as "The Bean."
 
 
 <!-- more -->
 
 ## Requirements
 
-Before I got started I identified the key requirements for my new layout: 
+Before starting, lets look at I identified the key requirements for my new layout: 
 
 1. In this new layout the photograph should be the primary focus of the page.
 2. The header above the navigation bar should be diminished, to allow for more vertical real estate for the photograph.
@@ -163,4 +163,30 @@ It is easy to add support for retina displays using [retina.js](http://retinajs.
 
 {% include_code after_footer.html lang:diff photoBlog/after_footer.diff %}
 
-I chose to add retina.js to photo pages (pages that have an ```image``` YAML tag) and to index pages (for the thumbnails).  If you want, you can chose to add retina.js all the time.  In order to get this to work, I also had to add @2x versions of the main photo, the thumbnail as well as the histogram image. 
+I chose to add retina.js to photo pages (pages that have an ```image``` YAML tag) and to index pages (for the thumbnails).  If you want, you can chose to add retina.js all the time.  In order to get this to work, I also had to add @2x versions of the main photo, the thumbnail as well as the histogram image. You can find more detailed instructions on the [retina.js website](http://retinajs.com/).
+
+## Automation
+
+There are two helper scripts that I use to help me with my photo posts.  I'm including them here with the hope that you might benefit from them.  You will need to modify them for your own purposes. These scripts are available on github at https://github.com/aijaz/photoBlog. 
+
+The first script, ```convertPhoto.pl```,  converts a double-sized retina image to the non-retina version.  It also generates the thumbnail and histogram images and invokes the second script.  
+
+The second script, ```generatePhotoPost.pl```, extracts the EXIF information from the image and generates the YAML preamble and creates the post file.  You can run this script even if the post file already exists - it will overwrite the preamble, but will preserve any content that you had already typed in earlier.
+
+## Future Enhancements
+
+This is a simple solution that displays one image per blog post.  The main enhancement I would like to make in the future is the ability to display multiple photos in a single post.  This would also allow for the addition of a series of photographs to a 'normal' post.  
+
+## Summary
+
+Although this post shows you how to make an Octopress-powered photoblog, it's really about the flexibility of the YAML preamble in general and the ```layout``` tag in particular.  With the proper inclusion of supporting files, layouts can be used to create wildly differing types of posts within a single blog.  Finally, please keep in mind that we *added* a new layout, and did not change the ```post```layout.  This means that even if you make the changes described in this post, you won't lose any of the functionality of Octopress.
+
+## References
+
+1. [Building Static Sites with Jekyll](http://net.tutsplus.com/tutorials/other/building-static-sites-with-jekyll/)
+2. [EXIF Wikipedia Page](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)
+3. [Image::ExifTool at CPAN](http://search.cpan.org/dist/Image-ExifTool/)
+4. [ImageMagick](http://www.imagemagick.org/)
+5. [Retina.js](http://retinajs.com/)
+6. [A Sample Octopress Photoblog](http://testphoto.aijazansari.com/)
+7. [A Photo Page on This Blog](http://aijazansari.com/2012/08/31/horseshoe-bend/)
