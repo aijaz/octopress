@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using Octopress as a Photo Blog"
-date: 2012-09-26 11:00
+date: 2012-10-01 22:00
 comments: false
 categories:
 - Computers
@@ -21,10 +21,10 @@ As an amateur photographer I like displaying my photos on my blog, especially wh
 
 ## Requirements
 
-Before starting, lets look at I identified the key requirements for my new layout: 
+Before starting, lets look at the key requirements for my new layout: 
 
 1. In this new layout the photograph should be the primary focus of the page.
-2. The header above the navigation bar should be diminished, to allow for more vertical real estate for the photograph.
+2. The blog's title and subtitle above the navigation bar should be diminished, to allow for more vertical real estate for the photograph.
 3. All the details of the photograph should be specified in the YAML preamble of the post.  The contents should only be notes.
 4. Octopress should automatically display a thumbnail of the photograph in the Index view.
 5. The photographs should be optimized for Retina displays, but still look good on normal displays
@@ -34,80 +34,89 @@ Before starting, lets look at I identified the key requirements for my new layou
 
 ## The New YAML Tags
 
-In this solution the YAML preamble dictates how the page is displayed.  Most importantly, instead of this tag
-    layout: post
-what you should have is 
-    layout: photo
-The following YAML tag is required.  It specifies the (absolute or relative) URI of the photograph. 
-{% codeblock lang:bash %}
-image: /images/photos/coolPhoto.jpg
-# The width and height of the photo in pixels
-photoWidth: 768
-photoHeight: 511
-{% endcodeblock %}
+In this solution the YAML preamble dictates how the page is displayed.  A typical photo post in its entirety is shown below, along with comments.  Most importantly, instead of ```layout: post``` what you should have is ```layout: photo```.
 
+The next three tags are required.  They specify the URI of the photograph as well as its dimensions. 
 
-The following tags are also supported, and are optional.  If you include them, the respective value will be displayed on the web page. All of these values are treated as strings.  In the file below, a sample value is shown, and a descriptive comment appears above the tag.
+The rest of  tags are also supported, and are optional.  If you include them, the respective value will be displayed on the web page. All of these values are treated as strings.  In the file below, a sample value is shown, and a descriptive comment appears above the tag.
 {% codeblock lang:bash %}
+---
+layout: photo   # this tag directs Octopress to use your new layout
+
+title: "The Title of the Post"
+date: 2012-09-02 11:30
+comments: false
+categories:
+- Photos
+author: Your Name
+tags: 
+- Tag 1
+- Tag 2
+
+#########################################
+##
+## start of required tags
+
+# The URI of of the photo to be displayed in this post
+image: /images/photos/coolPhoto.jpg 
+
+photoWidth: 768       # width in pixels
+photoHeight: 511      # height in pixels
+
+## end of required tags
+##
+#########################################
+
 # The URI to a thumbnail image. This thumbnail
 # will be displayed on the index page.
 thumbnail: /images/photos/coolPhotoTn.jpg
 
-# The width and height of the thumbnail image in pixels
-thumbnailWidth: 384
-thumbnailHeight: 256
+thumbnailWidth: 384   # width in pixels
+thumbnailHeight: 256  # height in pixels
 
-# ISO
-iso: 400
+iso: 400              # ISO
 
-# The aperture value 
-aperture: 4.8
+aperture: 4.8         # The aperture value 
 
-# Shutter speed in seconds
-shutterSpeed: 0.4
+shutterSpeed: 0.4     # Shutter speed in seconds
 
-# Focal length of the lens
-focalLength: 24.0 mm
+focalLength: 24.0 mm  # Focal length of the lens
 
-# Scale Factor to 35mm
-scaleFactor: 1.0
+scaleFactor: 1.0      # Scale Factor to 35mm
 
-# Flash
-flash: No Flash
+flash: No Flash       # Was the flash used here?
 
-# Exposure Compensation
-expComp: N/A
+expComp: N/A          # Exposure Compensation
 
-# Camera Model
-camera: Nikon D700
+camera: Nikon D700    # Camera Model
 
-# Lens 
-lens: AF-S VR Zoom-Nikkor 24-120mm f/3.5-5.6G IF-ED
+lens: AF-S VR Zoom-Nikkor 24-120mm f/3.5-5.6G IF-ED  # Lens 
 
-# Photographer Name
-creator: Your Name Here
+creator: Your Name    # Photographer Name
 
 # Date and Time the photograph was taken
 dateTaken: 2012/03/29 16:21:19
 
 # Copyright information
-copyright: Copyright 2012 Your Name Here
+copyright: Copyright 2012 Your Name
 
-# License information
+# License information - This may be HTML
 license: <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png" /></a>
 
 # The URI to an image of the photo's histogram
 histogram: /images/photos/coolPhotoHist.jpg
 
-# The width and height of the histogram in pixels
-histogramWidth: 128
-histogramHeight: 50
+histogramWidth: 128   # width in pixels
+histogramHeight: 50   # height in pixels
+---
+
+This is what's called the content.  This text will 
+be displayed underneath the photo in the photo post.
 
 {% endcodeblock %}    
-These are just the tags that are supported by the system described in this blog post.  You can always add more tags and use them in ```photoFile.html``` file that you'll see in a little bit.  Later in this post I'll show you how to extract this information from your photograph's [EXIF data](http://digital-photography-school.com/using-exif-data).
+These are just the tags that are supported by the system described in this blog post.  You can always add more tags and use them in the ```source/_includes/photoFile.html``` file that you'll see in a little bit.  Later in this post I'll also show you how to extract this information from your photograph's [EXIF data](http://digital-photography-school.com/using-exif-data).
 
 ## Layouts and Includes
-
 ### The Layout
 
 The first step is to create a new layout file.  Since we're using ```layout: photo``` in the YAML preamble, we need to create a file called ```source/_layouts/photo.html```.  This layout file is almost identical to ```source/_layouts/post.html```, so I'll just show you the diffs: 
@@ -119,9 +128,9 @@ Here are the changes:
 - I've set the ```sidebar``` YAML tag to ```collapse```.  This instructs octopress to collapse the sidebar and display it instead at the bottom. 
 - I've set the ```no_header``` tag to ```true``` so that the post header is not displayed.
 - I've set a new YAML tag: ```header: condensed```.  We'll see how this is used a little later.
-- Instead of including article.html, I'm including photoFile.html.
+- Instead of including ```article.html```, I'm including ```photoFile.html``` (found at ```source/_includes/photoFile.html```).
 
-Now that we've told Octopress that the photo layout should include photoFile.html, it's time to have a look at that file. Since it's so similar to article.html (before we change that file), I'll just show you the differences between the two files: 
+Now that we've told Octopress that the photo layout should include ```photoFile.html```, it's time to have a look at that file. Since it's so similar to ```source/_includes/article.html``` (before we change that file), I'll just show you the differences between the two files: 
 
 {% include_code photoFile.html lang:diff photoBlog/photoFile.diff %}
 
@@ -131,7 +140,7 @@ If you want to support more data than you see in this table, simply modify this 
 
 ### Displaying Thumbnails in the Index
 
-In order to display the thumbnail of the image in the index view I changed source/_includes/article.html: 
+In order to display the thumbnail of the image in the index view I changed ```source/_includes/article.html```: 
 
 {% include_code article.html lang:diff photoBlog/article.diff %}
 
@@ -139,35 +148,35 @@ What this says is that if Octopress is displaying the index and the current post
 
 ### Condensing the Header
 
-To get the condensed version of the header I changed source/_layouts/default.html: 
+To get the condensed version of the header I changed ```source/_layouts/default.html```: 
 
 {% include_code default.html lang:diff photoBlog/default.diff %}
 
-In the first set of changes (lines 5-10), if the page has a YAML tag of ```header``` whose value is ```condensed```, then instead of including header.html, we'll include custom/headerCondensed.html.  In the second set of changes (lines 12-15) we assign a class of ```photo``` to the ```main``` and ```content``` divs if the posts YAML has an ```image``` -- in other words, if the post is a photo layout post.  This is merely so that we can apply different styles to the photo pages.
+In the first set of changes (lines 5-10), if the page has a YAML tag of ```header``` whose value is ```condensed```, then instead of including ```header.html```, we'll include ```custom/headerCondensed.html```, and make the header be of the class ```condensed```.  In the second set of changes (lines 12-15) we assign a class of ```photo``` to the ```main``` and ```content``` divs if the post's YAML has an ```image``` -- in other words, if the post is a photo layout post.  This is merely so that we can apply different styles to the photo pages.
 
-The custom/headerCondensed.html file is shown below:
+The ```custom/headerCondensed.html``` file is shown below:
 
 {% include_code custom/headerCondensed.html lang:html photoBlog/headerCondensed.html %}
 
 
 ## CSS Changes
 
-All of the changes to CSS are in sass/custom/_styles.scss: 
+All of the changes to CSS are in ```sass/custom/_styles.scss```: 
 
 {% include_code _styles.css lang:css photoBlog/styles.scss %}
 
 
 ## Supporting Retina Displays
 
-It is easy to add support for retina displays using [retina.js](http://retinajs.com).  I added retina.js to source/javascripts and modified source/_includes/custom/after_footer.html as follows: 
+It is easy to add support for retina displays using [retina.js](http://retinajs.com).  I added ```retina.js``` to ```source/javascripts``` and modified ```source/_includes/custom/after_footer.html``` as follows: 
 
 {% include_code after_footer.html lang:diff photoBlog/after_footer.diff %}
 
-I chose to add retina.js to photo pages (pages that have an ```image``` YAML tag) and to index pages (for the thumbnails).  If you want, you can chose to add retina.js all the time.  In order to get this to work, I also had to add @2x versions of the main photo, the thumbnail as well as the histogram image. You can find more detailed instructions on the [retina.js website](http://retinajs.com/).
+I chose to add ```retina.js``` to photo pages (pages that have an ```image``` YAML tag) and to index pages (for the thumbnails).  If you want, you can chose to support retina displays all the time.  In order to get this to work, I also had to add *@2x* versions of the main photo, the thumbnail as well as the histogram image. You can find more detailed instructions on the [retina.js website](http://retinajs.com/).
 
 ## Automation
 
-There are two helper scripts that I use to help me with my photo posts.  I'm including them here with the hope that you might benefit from them.  You will need to modify them for your own purposes. These scripts are available on github at https://github.com/aijaz/photoBlog. 
+There are two helper scripts that I use to help me with my photo posts.  I'm including them here with the hope that you might benefit from them.  You will need to modify them for your own purposes. These scripts are available on github at [https://github.com/aijaz/photoBlog](https://github.com/aijaz/photoBlog). 
 
 The first script, ```convertPhoto.pl```,  converts a double-sized retina image to the non-retina version.  It also generates the thumbnail and histogram images and invokes the second script.  
 
@@ -185,8 +194,9 @@ Although this post shows you how to make an Octopress-powered photoblog, it's re
 
 1. [Building Static Sites with Jekyll](http://net.tutsplus.com/tutorials/other/building-static-sites-with-jekyll/)
 2. [EXIF Wikipedia Page](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)
-3. [Image::ExifTool at CPAN](http://search.cpan.org/dist/Image-ExifTool/)
-4. [ImageMagick](http://www.imagemagick.org/)
-5. [Retina.js](http://retinajs.com/)
-6. [A Sample Octopress Photoblog](http://testphoto.aijazansari.com/)
-7. [A Photo Page on This Blog](http://aijazansari.com/2012/08/31/horseshoe-bend/)
+4. [EXIF data](http://digital-photography-school.com/using-exif-data)
+5. [Image::ExifTool at CPAN](http://search.cpan.org/dist/Image-ExifTool/)
+6. [ImageMagick](http://www.imagemagick.org/)
+7. [Retina.js](http://retinajs.com/)
+8. [A Sample Octopress Photoblog](http://testphoto.aijazansari.com/)
+9. [A Photo Page on This Blog](http://aijazansari.com/2012/08/31/horseshoe-bend/)
