@@ -12,12 +12,10 @@ tags:
 description: "In this post I illustrate how I modified the default Octopress theme and added a type of layout that highlights a single photograph."
 ---
 
-<!-- ai l /images/photoblog/hero.png /images/photoblog/heroSmall.png 320 480 A Layout for Photos -->
-
-As an amateur photographer I like displaying my photos on my blog, especially when there are particularly interesting stories behind them. In this post I'll show you how to modify the default Octopress theme and add a type of layout that highlights a single photograph.  You can see an example of this in [this sample blog](http://testphoto.aijazansari.com).  The first post in this sample blog is a "regular" post, and the second is a photo post - a photo of Cloud Gate, also known as "The Bean."
-
-
+As an amateur photographer I like displaying my photos on my blog, especially when there are particularly interesting stories behind them. In this post I'll show you how to modify the default Octopress theme and add a type of layout that highlights a single photograph.  You can see an example of this in [this sample blog](http://testphoto.aijazansari.com).  
 <!-- more -->
+The first post in this sample blog is a "regular" post, and the second is a photo post - a photo of Cloud Gate, also known as "The Bean."
+
 
 ## Requirements
 
@@ -194,9 +192,10 @@ Although this post shows you how to make an Octopress-powered photoblog, it's re
 
 1. [Building Static Sites with Jekyll](http://net.tutsplus.com/tutorials/other/building-static-sites-with-jekyll/)
 2. [EXIF Wikipedia Page](http://en.wikipedia.org/wiki/Exchangeable_image_file_format)
-4. [EXIF data](http://digital-photography-school.com/using-exif-data)
-5. [Image::ExifTool at CPAN](http://search.cpan.org/dist/Image-ExifTool/)
-6. [ImageMagick](http://www.imagemagick.org/)
-7. [Retina.js](http://retinajs.com/)
-8. [A Sample Octopress Photoblog](http://testphoto.aijazansari.com/)
-9. [A Photo Page on This Blog](http://aijazansari.com/2012/08/31/horseshoe-bend/)
+3. [EXIF data](http://digital-photography-school.com/using-exif-data)
+4. [Image::ExifTool at CPAN](http://search.cpan.org/dist/Image-ExifTool/)
+5. [ImageMagick](http://www.imagemagick.org/)
+6. [Retina.js](http://retinajs.com/)
+7. [A sample Octopress photoBlog](http://testphoto.aijazansari.com/)
+8. [A photo page on this blog](http://aijazansari.com/2012/08/31/horseshoe-bend/)
+9. [The photoBlog script repository](https://github.com/aijaz/photoBlog)

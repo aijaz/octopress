@@ -12,10 +12,10 @@ tags:
 - bcrypt
 - Hashes
 - SecondConf
-description: Here are the slides and links from my recent talk on password security at SecondConf.
+description: Here are the slides and links from my recent Blitz Talk on password security at SecondConf.
 ---
 
-Here are the slides and links from my recent talk on password security at SecondConf.
+Here are the slides and links from my recent Blitz Talk on password security at SecondConf.
 
 **Update:** I have just posted [some followup discussions in a new blog post](/2012/09/24/more-on-passwords/).
 
@@ -37,4 +37,4 @@ Now, here are the links to the sources that I used to prepare this talk:
 * [Ted Nasmith - Artwork for Tolkien's Works](http://tednasmith.mymiddleearth.com/)
 * [Angband](http://angband.oook.cz/artwork.php)
 
-Special thanks to Ted Nasmith for letting me use his painting in my talk.
+Special thanks to Ted Nasmith for letting me use his painting in my Blitz Talk.

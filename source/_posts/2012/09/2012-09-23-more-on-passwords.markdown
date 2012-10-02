@@ -12,10 +12,10 @@ tags:
 - bcrypt
 - Hashes
 - SecondConf
-description: There were some great discussions and questions following my recent talk at SecondConf. I summarize them in this post.
+description: There were some great discussions and questions following my recent Blitz Talk at SecondConf. I summarize them in this post.
 ---
 
-After my [recent talk at SecondConf](/2012/09/22/protecting-your-users-privacy/) I had
+After my [recent Blitz Talk at SecondConf](/2012/09/22/protecting-your-users-privacy/) I had
 some great conversations with fellow attendees in the meal lines and around the beverage
 table.  I'm presenting them here for further discussion.  
 
